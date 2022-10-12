@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tic Tac Toe</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .board {
+      display: grid;
+      grid-template-columns: 100px 100px 100px;
+      grid-template-rows: 100px 100px 100px;
+    }
+
+    .board>div {
+      border: 1px solid;
+      font-size: 5em;
+      text-align: center;
+    }
+
+    .board>div:nth-child(n) {
+      border-top: 0;
+    }
+
+    .board>div:nth-child(n + 7) {
+      border-bottom: 0;
+    }
+
+    .board>div:nth-child(1n) {
+      border-left: 0;
+    }
+
+    .board>div:nth-child(3n) {
+      border-right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="board">
+    <div id="one"></div>
+    <div id="two"></div>
+    <div id="three"></div>
+    <div id="four"></div>
+    <div id="five"></div>
+    <div id="six"></div>
+    <div id="seven"></div>
+    <div id="eight"></div>
+    <div id="nine"></div>
+  </div>
+
+  <button id="reset">Reset</button>
+
+  <script>
+    const board = document.querySelector('.board');
+    const resetButton = document.querySelector('.reset');
+
+    const p1 = 'X';
+    const p2 = 'O';
+
+
+   
+
+    let player = p1;
+
+    resetBoard();
+
+    function checkEmpty(x) {
+      if (x.target.innerHTML == '') {
+        console.log('Test')
+        makeMove(x);
+      }
+    }
+
+    function makeMove(x) {
+      x.target.innerHTML = player;
+      if (player === p1) player = p2;
+      else player = p1;
+      return player;
+    }
+
+    function resetBoard() {
+      const board = document.querySelector('.board');
+      for (let i = 0; i < board.children.length; i++) {
+        board.children[i].innerHTML = '';
+      }
+    }
+
+    /*function winner() {
+    const one = document.getElementById('one').textContent;
+    const two = document.getElementById('two').textContent;
+    const three = document.getElementById('three').textContent;
+    const four = document.getElementById('four').textContent;
+    const five = document.getElementById('five').textContent;
+    const six = document.getElementById('six').textContent;
+    const seven = document.getElementById('seven').textContent;
+    const eight = document.getElementById('eight').textContent;
+    const nine = document.getElementById('nine').textContent;
+
+    console.log(one)
+
+    if (one == two && one == three){
+      alert('Congrats!')
+    }
+
+    } */
+
+    board.addEventListener('click', checkEmpty);
+    // board.addEventListener('click', winner);
+    reset.addEventListener('click', resetBoard);
+  </script>
+</body>
+
+</html>
