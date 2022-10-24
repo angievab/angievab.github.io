@@ -1,0 +1,23 @@
+#todoList li {
+position: relative;
+display: flex;
+align-items:center;
+flex-direction: row;
+border: 1px solid;
+}
+h1 {
+  font-family: Copperplate, Papyrus, fantasy;
+  font-size: 38px;
+  color:white;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+}
+body { 
+  font-family: Garamond, serif;
+  font-size: 20px;
+  text-align: center;
+  line-height: 2;
+  letter-spacing: 3px;
+  background-color: #1d7874;
+color:white;
+}
