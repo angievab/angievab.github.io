@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' href='styles.css'>
+</head>
+<body>
+    <!-- //transform -->
+    <!-- <h1>Put your <span>dukes</span> up, sire</h1>
+    The translate(x,y) function moves an element x from the left, and y from the top:
+    transform: translate(45px, -45px);
+    If you only want to move an element vertically or horizontally, 
+    you can use the translatex or translatey functions respectively. To move 45px to the right along the x axis, include:
+    transform: translateX(45px);
+    To move up along the y axis by 30px, include
+    transform: translateY(-30px); -->
+    <!-- //scaling
+    The scale(x,y) function scales an element by the defined factors horizontally then vertically.
+    transform: scale(1.5, 0.25); -->
+    <!-- //rotation
+    The rotate() function rotates an element around the point of origin by a specified angle value.
+    Generally, angles are declared in degrees, with positive degrees moving clockwise and negative 
+    moving counterclockwise. In addition to degrees, values can be provided in grads, radians, or turns, but we’ll just be sticking with degrees. -->
+    <!-- //Skew
+    The skew(x,y) function specifies a skew along the x and y axes. As you’d expect, the x specifies the skew on the x axis, 
+    and the y specifies the skew on the y axis. If the second parameter is omitted, the skew will only occur on the x axis:
+    transform: skew(15deg, 4deg);
+    !!The order of transform functions does matter: if you rotate before translating, your translate direction will be on the rotated axis. -->
+    <!-- //transformIf you want to transition more than one property, but not all, comma-separate them:
+    .foo {
+        transition-property: transform, color;
+    }
+    //transition-duration Property
+    the duration of time it takes to go from the default state to the transitioned state. You can specify this either in seconds (s) or milliseconds (ms). 
+    We’d like our animation to be fairly quick, so we’ll specify 0.2 seconds (0.2s), or 200 milliseconds (200ms):
+    200ms is generally considered the optimum time for a transition: anything slower will make the website seem slow.
+    //The transition Shorthand Property
+    From this
+    .ad-ad2 h1 span {
+        transition-property: transform; 
+        transition-duration: 0.2s;  
+        transition-timing-function: ease-out;
+        transition-delay: 50ms;
+    }
+    to this
+    .ad-ad2 h1 span {
+        transition: transform 0.2s ease-out 50ms;
+    } -->
+    <!-- //multiple transitions
+    transition-property: transform, color; 
+    transition-duration: 0.2s;  
+    transition-timing-function: ease-out;
+    transition-delay: 50ms;
+    Shorthandtransition: transform 0.2s ease-out 50ms, color 0.1s linear 50ms;
+     -->
+     <!-- //Animations
+     We use @keyframes. For an animation called myAnimation, the @keyframes rule would look like this:
+     @-webkit-keyframes myAnimation { 
+        /* put animation keyframes here */
+    }
+    @keyframes myAnimation { 
+        /* put animation keyframes here */
+    }
+    Keyframes can be specified in any order; 
+    it’s the percentage values rather than the order of the declarations that determine the sequence of keyframes in the animation.
+    @keyframes moveRight { 
+        from {
+        transform: translateX(-50%);
+        }
+        to {
+        transform: translateX(50%);
+        }
+    }
+    
+    @keyframes appearDisappear { 
+        0%, 100% {
+        opacity: 0;
+        }
+        20%, 80% {
+        opacity: 1;
+        }
+    }
+    
+    @keyframes bgMove {
+        100% {
+        background-position: 120% 0;
+        }
+    } -->
+    <!-- //Animation Properties
+The animation properties, remembering that you will need two declarations for each property as 
+the -webkit- prefix is still needed in WebKit browsers, are as follows:
+animation-name
+Note that you should not put quotes around the animation name in either the property value or
+ the @keyframes at-rule, as the specifications state the name is an identifier and not a string, 
+ so browsers don’t support quoted animation names.
+ The animation-duration property defines the length of time (in seconds or milliseconds) 
+ an animation takes to complete one iteration (all the way through, from 0% to 100%):
+ animation-duration: 300ms;
+//animation-timing-function
+ Like the transition-timing-function property, the animation-timing-function determines how the 
+ animation will progress over its duration. The options are the same as for transition-timing-function: 
+ ease, linear, ease-in, ease-out, ease-in-out, a developer-defined cubic-bezier() function, step-start, 
+ step-end, or a developer-defined number of steps with the steps(number, direction) function:
+ animation-timing-function: linear;
+//animation-iteration-count
+he animation-iteration-count property lets you define how many times the animation will play through. 
+The value is generally an integer, but you can also use numbers with decimal points
+animation-iteration-count: infinite;
+//animation-delay
+The animation-delay property is used to define how many milliseconds or seconds 
+to wait before the browser begins the animation:
+animation-delay: 50ms;
+animation-fill-mode
+//The Shorthand animation Property
+.verbose {
+    animation-name: appearDisappear; 
+    animation-duration: 300ms; 
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-delay: 5s;
+    animation-fill-mode: backwards;
+    animation-play-state: running;
+}
+
+/* shorthand */
+.concise {
+    animation: 300ms ease-in alternate 5s backwards appearDisappear;
+}
+To declare multiple animations on an element, 
+include a grouping for each animation name, with each shorthand grouping separated by a comma. For example:
+.target {
+    animation: 
+    animationOne 300ms ease-in backwards, 
+    animationTwo 600ms ease-out 1s forwards;
+}
+Bicycle example@keyframes bike {
+    0% {
+    background-position: 0 0;
+    }
+    100% {
+    background-position: -360px 0;
+    }
+}
+@keyframes move {
+    0% {
+    transform: translateX(-100px);
+    }
+    100% {
+    transform: translateX(100px);
+    }
+}  
+    
+h1:after {
+    content: '';
+    width: 90px;
+    height: 92px;
+    background-image: url(../images/bike_sprite.png);
+    display: block;
+    margin: auto;
+    animation: 
+        0.4s steps(4, end) infinite 50ms bike,
+        8s linear infinite 50ms move;
+    animation-play-state: paused;
+}
+h1:hover:after {
+    animation-play-state: running;
+} -->
+
+</body>
+</html>
