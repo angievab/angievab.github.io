@@ -1,0 +1,18 @@
+#square {
+    margin: 100px;
+    width: 100px;
+    height: 100px;
+    background: #d16;
+}
+
+/*alternative instead of using js, do the rotation with keyframes
+#square {
+    margin: 100px;
+    width: 100px;
+    height: 100px;
+    background: #cc0;
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin { from { transform:rotate(0deg); } to { transform:rotate(3600deg); } }
+*/
