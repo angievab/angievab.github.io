@@ -1,11 +1,30 @@
-h1 {
-    text-align:center;
+h1{
+    font-size: 35px;
+    letter-spacing: 10px;
+    text-transform: capitalize;
 }
-div {
-    background-color:rgb(73, 214, 184);
-    padding:20px;
+body { 
+  font-family: Garamond, serif;
+  font-size: 20px;
+  text-align: center;
+  text-transform: capitalize;
+  line-height: 2;
+  letter-spacing: 3px;
+  background-color:rgb(73, 214, 184);
+font-weight: bold;
 }
 ul {
-    text-align: center; 
-    list-style-position: inside;
+    list-style-type: none;
+}
+
+li a{
+color: black;
+  padding: 15px 24px;
+  text-decoration: none;
+  word-spacing: 5px;
+  background-color: white;
+}
+li a:hover {
+  background-color: rgb(73, 214, 184);
+color: white;
 }
